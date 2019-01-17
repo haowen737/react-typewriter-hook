@@ -1,0 +1,31 @@
+{
+  "name": "react-typewritter",
+  "version": "0.0.0",
+  "description": "⌨️ Use react hooks for typing effect easily",
+  "main": "build/index.js",
+  "files": [
+    "build"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/haowen737/react-typewriter-hook.git"
+  },
+  "keywords": [
+    "react-hooks"
+  ],
+  "author": "Haowen <haowen737@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/haowen737/react-typewriter-hook/issues"
+  },
+  "homepage": "https://github.com/haowen737/react-typewriter-hook#readme",
+  "devDependencies": {
+    "@types/react": "^16.7.20",
+    "typescript": "^3.2.2"
+  },
+  "dependencies": {}
+}
