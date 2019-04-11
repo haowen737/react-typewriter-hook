@@ -19,10 +19,11 @@ View example at [codesandbox](https://codesandbox.io/s/lr3q0q32vq)
 // Then type down new word
 import useTypewriter from "react-typewriter-hook"
 
-function MagicWritter(word) {
+function MagicWriter(word) {
   const typing = useTypewriter(word)
   return typing
 }
+
 ```
 ## What happens after call useTypewriter hook
 - Typewriter accept the word, ready to write
