@@ -1,14 +1,14 @@
 {
-  "main.css": "/static/css/main.4cbd8590.chunk.css",
-  "main.js": "/static/js/main.e6ba665f.chunk.js",
-  "main.js.map": "/static/js/main.e6ba665f.chunk.js.map",
-  "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
-  "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
-  "static/js/2.6efc73d3.chunk.js": "/static/js/2.6efc73d3.chunk.js",
-  "static/js/2.6efc73d3.chunk.js.map": "/static/js/2.6efc73d3.chunk.js.map",
-  "index.html": "/index.html",
-  "precache-manifest.afe34c66da290c59284246f7d1cc2772.js": "/precache-manifest.afe34c66da290c59284246f7d1cc2772.js",
-  "service-worker.js": "/service-worker.js",
-  "static/css/main.4cbd8590.chunk.css.map": "/static/css/main.4cbd8590.chunk.css.map",
-  "static/media/logo.svg": "/static/media/logo.5d5d9eef.svg"
+  "main.css": "/haowen737/react-typewriter-hook/static/css/main.1fc08804.chunk.css",
+  "main.js": "/haowen737/react-typewriter-hook/static/js/main.d3edc387.chunk.js",
+  "main.js.map": "/haowen737/react-typewriter-hook/static/js/main.d3edc387.chunk.js.map",
+  "runtime~main.js": "/haowen737/react-typewriter-hook/static/js/runtime~main.095b1514.js",
+  "runtime~main.js.map": "/haowen737/react-typewriter-hook/static/js/runtime~main.095b1514.js.map",
+  "static/js/2.2af8cd3b.chunk.js": "/haowen737/react-typewriter-hook/static/js/2.2af8cd3b.chunk.js",
+  "static/js/2.2af8cd3b.chunk.js.map": "/haowen737/react-typewriter-hook/static/js/2.2af8cd3b.chunk.js.map",
+  "index.html": "/haowen737/react-typewriter-hook/index.html",
+  "precache-manifest.c1896f8ffcb1441b55120bc7d0c3439c.js": "/haowen737/react-typewriter-hook/precache-manifest.c1896f8ffcb1441b55120bc7d0c3439c.js",
+  "service-worker.js": "/haowen737/react-typewriter-hook/service-worker.js",
+  "static/css/main.1fc08804.chunk.css.map": "/haowen737/react-typewriter-hook/static/css/main.1fc08804.chunk.css.map",
+  "static/media/logo.svg": "/haowen737/react-typewriter-hook/static/media/logo.5d5d9eef.svg"
 }
