@@ -23,10 +23,9 @@
   "bugs": {
     "url": "https://github.com/haowen737/react-typewriter-hook/issues"
   },
-  "homepage": "https://github.com/haowen737/react-typewriter-hook#readme",
+  "homepage": "https://github.com/haowen737/react-typewriter-hook",
   "devDependencies": {
     "@types/react": "^16.7.20",
-    "gh-pages": "^2.0.1",
     "typescript": "^3.2.2"
   },
   "dependencies": {}
