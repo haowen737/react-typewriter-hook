@@ -8,6 +8,7 @@
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy-doc": "gh-pages -d example/build",
     "build": "tsc"
   },
   "repository": {
@@ -25,6 +26,7 @@
   "homepage": "https://github.com/haowen737/react-typewriter-hook#readme",
   "devDependencies": {
     "@types/react": "^16.7.20",
+    "gh-pages": "^2.0.1",
     "typescript": "^3.2.2"
   },
   "dependencies": {}
