@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/haowen737/react-typewriter-hook/precache-manifest.c1896f8ffcb1441b55120bc7d0c3439c.js"
+  "/react-typewriter-hook/precache-manifest.1985ab640498e0bb855b05b7844a7e44.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/haowen737/react-typewriter-hook/index.html", {
+workbox.routing.registerNavigationRoute("/react-typewriter-hook/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });
