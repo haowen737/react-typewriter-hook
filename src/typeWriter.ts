@@ -16,7 +16,7 @@ export default class TypeWritter {
 
   public restartTypeWriter() {
     this.memoWord = this.nextWord
-    this.eventQueue = this.nextWord.split('')
+    this.eventQueue = this.nextWord ? this.nextWord.split('') : []
     this.erasing = false
     return ''
   }
@@ -27,7 +27,7 @@ export default class TypeWritter {
    *    |-- writing
    *    |-- erasing
    *    |-- restartWrite
-   * 
+   *
    * @returns
    * @memberof TypeWritter
    */
