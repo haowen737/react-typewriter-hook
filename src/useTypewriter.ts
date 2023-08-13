@@ -1,21 +1,20 @@
 import { useState, useEffect, useRef } from "react"
 import TypeWritter from './typeWriter'
 
-const writter = new TypeWritter()
-
 export default function useTypeWritter(str: string) {
   const [word, setWord] = useState<null | string>(null)
   const intervalRef = useRef<any>({})
   const strRef = useRef<any>({})
+  const writerInstRef = useRef<TypeWritter>(new TypeWritter())
 
   useEffect(() => {
-    strRef.current = setWord(writter.startTypeWord(str))
+    strRef.current = setWord(writerInstRef.current.startTypeWord(str))
   }, [str])
 
   useEffect(() => {
     intervalRef.current = setInterval(() => {
-      setWord(writter.typing())
-    }, writter.rd())
+      setWord(writerInstRef.current.typing())
+    }, writerInstRef.current.rd())
     return function clear() {
       clearInterval(intervalRef.current)
     }
