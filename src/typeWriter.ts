@@ -1,75 +1,72 @@
-export default class TypeWritter {
-  private memoWord: string
-  private nextWord: string
-  private word: string
-  private index: number
-  private eventQueue: string[]
-  private dummyQueue: Array<string | undefined>
-  private erasing: boolean
+export type TypewriterDelay = number | readonly [minMs: number, maxMs: number]
 
-  constructor(
-  ) {
-    this.dummyQueue = []
-    this.eventQueue = []
-    // this.initTaskQueue()
-  }
+export type TypewriterOptions = {
+  typingDelay?: TypewriterDelay
+  deletingDelay?: TypewriterDelay
+}
 
-  public restartTypeWriter() {
-    this.memoWord = this.nextWord
-    this.eventQueue = this.nextWord ? this.nextWord.split('') : []
-    this.erasing = false
-    return ''
-  }
+const defaultOptions: Required<TypewriterOptions> = {
+  typingDelay: [90, 170],
+  deletingDelay: [55, 120],
+}
 
-  /**
-   * Main process function
-   * typing
-   *    |-- writing
-   *    |-- erasing
-   *    |-- restartWrite
-   *
-   * @returns
-   * @memberof TypeWritter
-   */
-  public typing() {
-    // earsing to last character, start write next word
-    if (this.erasing && !this.word) {
-      return this.restartTypeWriter()
+function randomDelayMs(delay: TypewriterDelay): number {
+  if (typeof delay === 'number') return Math.max(0, delay)
+  const [minMs, maxMs] = delay
+  const lower = Math.min(minMs, maxMs)
+  const upper = Math.max(minMs, maxMs)
+  return Math.floor(lower + Math.random() * (upper - lower + 1))
+}
+
+type Mode = 'idle' | 'typing' | 'deleting'
+
+export default class Typewriter {
+  private currentText = ''
+  private targetText = ''
+  private mode: Mode = 'idle'
+  private readonly options: Required<TypewriterOptions>
+
+  constructor(options?: TypewriterOptions) {
+    this.options = {
+      typingDelay: options?.typingDelay ?? defaultOptions.typingDelay,
+      deletingDelay: options?.deletingDelay ?? defaultOptions.deletingDelay,
     }
-    // earsing
-    if (this.erasing && this.word) {
-      return this.erase()
+  }
+
+  public setTargetText(nextText: string) {
+    const normalized = nextText ?? ''
+    if (normalized === this.targetText) return
+
+    this.targetText = normalized
+    this.mode = this.currentText ? 'deleting' : 'typing'
+  }
+
+  public isIdle() {
+    return this.mode === 'idle'
+  }
+
+  public getDelayMs() {
+    if (this.mode === 'deleting') return randomDelayMs(this.options.deletingDelay)
+    return randomDelayMs(this.options.typingDelay)
+  }
+
+  public tick() {
+    if (this.mode === 'idle') return this.currentText
+
+    if (this.mode === 'deleting') {
+      this.currentText = this.currentText.slice(0, -1)
+      if (!this.currentText) this.mode = 'typing'
+      return this.currentText
     }
-    // write end
-    if (this.word === this.memoWord) {
-      return this.word
+
+    if (this.currentText === this.targetText) {
+      this.mode = 'idle'
+      return this.currentText
     }
-    // writing
-    const el = this.eventQueue.shift()
-    this.dummyQueue.push(el)
-    this.word = this.dummyQueue.join('')
-    return this.word
-  }
 
-  public startTypeWord(str: string) {
-    this.erasing = true
-    this.nextWord = str
-    this.dummyQueue.pop()
-    this.word = this.dummyQueue.join('')
-    return this.word
+    const nextLength = Math.min(this.currentText.length + 1, this.targetText.length)
+    this.currentText = this.targetText.slice(0, nextLength)
+    if (this.currentText === this.targetText) this.mode = 'idle'
+    return this.currentText
   }
-
-  public erase() {
-    this.dummyQueue.pop()
-    this.word = this.dummyQueue.join('')
-    return this.word
-  }
-
-  public rd(): number {
-    const r = Math.random()
-    return r > 0.1 || r < 0.07
-      ? this.rd()
-      : r * 1000
-  }
-
 }

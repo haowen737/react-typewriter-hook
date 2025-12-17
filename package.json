@@ -1,14 +1,28 @@
 {
   "name": "react-typewriter-hook",
-  "version": "1.0.2",
+  "version": "2.0.0",
   "description": "⌨️ Use react hooks for typing effect easily",
-  "main": "build/index.js",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
   "files": [
-    "build"
+    "dist"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc"
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "prepublishOnly": "npm run build",
+    "example:dev": "npm --prefix example run dev",
+    "example:build": "npm --prefix example run build",
+    "example:deploy": "npm --prefix example run deploy",
+    "test": "echo \"No tests\" && exit 0"
   },
   "repository": {
     "type": "git",
@@ -22,9 +36,17 @@
   "bugs": {
     "url": "https://github.com/haowen737/react-typewriter-hook/issues"
   },
+  "engines": {
+    "node": ">=18 <=22"
+  },
+  "peerDependencies": {
+    "react": ">=16.8"
+  },
+  "sideEffects": false,
   "devDependencies": {
-    "@types/react": "^16.7.20",
-    "typescript": "^3.2.2"
+    "@types/react": "^18.3.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.0.0"
   },
   "dependencies": {}
 }

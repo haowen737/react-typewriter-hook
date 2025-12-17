@@ -10,23 +10,30 @@ npm i react-typewriter-hook --save
 ```
 
 ## Example
-View example at [codesandbox](https://codesandbox.io/s/lr3q0q32vq)
+- GitHub Pages: `https://haowen737.github.io/react-typewriter-hook/`
+- Local demo: `npm --prefix example install && npm --prefix example run dev`
 
 ## Usage
 ```js
-// useTypewriter will do these things
-// Once Word changed, typewritter will automatically erase last word
-// Then type down new word
 import useTypewriter from "react-typewriter-hook"
+import { useTypewriterSequence } from "react-typewriter-hook"
 
 function MagicWriter(word) {
-  const typing = useTypewriter(word)
-  return typing
+  const typing = useTypewriter(word, {
+    typingDelay: [70, 100],
+    deletingDelay: [30, 60],
+  })
+  return typing ?? ""
+}
+
+function MagicSequence(words) {
+  const typing = useTypewriterSequence(words, {
+    pauseMs: 1200,
+    loop: true,
+  })
+  return typing ?? ""
 }
 
 ```
-## What happens after call useTypewriter hook
-- Typewriter accept the word, ready to write
-- Typewriter write down your word and waiting for the word change
-- Typewriter once accept the new word, it erases the last word, and write down next
-
+## Behavior
+- When `word` changes, it erases the previous word then types the new word.

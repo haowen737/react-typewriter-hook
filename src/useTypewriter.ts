@@ -1,24 +1,33 @@
-import { useState, useEffect, useRef } from "react"
-import TypeWritter from './typeWriter'
+import { useEffect, useRef, useState } from 'react'
+import Typewriter, { type TypewriterOptions } from './typeWriter'
 
-export default function useTypeWritter(str: string) {
-  const [word, setWord] = useState<null | string>(null)
-  const intervalRef = useRef<any>({})
-  const strRef = useRef<any>({})
-  const writerInstRef = useRef<TypeWritter>(new TypeWritter())
+export type UseTypewriterOptions = TypewriterOptions
 
-  useEffect(() => {
-    strRef.current = setWord(writerInstRef.current.startTypeWord(str))
-  }, [str])
+export default function useTypewriter(text: string, options?: UseTypewriterOptions) {
+  const [word, setWord] = useState<string | null>(null)
+  const writerRef = useRef<Typewriter | null>(null)
+  const timeoutIdRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   useEffect(() => {
-    intervalRef.current = setInterval(() => {
-      setWord(writerInstRef.current.typing())
-    }, writerInstRef.current.rd())
-    return function clear() {
-      clearInterval(intervalRef.current)
+    if (!writerRef.current) writerRef.current = new Typewriter(options)
+    writerRef.current.setTargetText(text)
+
+    let cancelled = false
+    const writer = writerRef.current
+
+    const run = () => {
+      if (cancelled) return
+      setWord(writer.tick())
+      if (writer.isIdle()) return
+      timeoutIdRef.current = setTimeout(run, writer.getDelayMs())
     }
-  }, [word])
+    run()
+
+    return () => {
+      cancelled = true
+      if (timeoutIdRef.current) clearTimeout(timeoutIdRef.current)
+    }
+  }, [text])
 
   return word
 }

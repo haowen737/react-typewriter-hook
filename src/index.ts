@@ -1,3 +1,8 @@
-import useTypeWriter from './useTypewriter'
+import useTypewriter from './useTypewriter'
 
-export default useTypeWriter
+export type { UseTypewriterOptions } from './useTypewriter'
+export type { UseTypewriterSequenceOptions } from './useTypewriterSequence'
+
+export { useTypewriter }
+export { default as useTypewriterSequence } from './useTypewriterSequence'
+export default useTypewriter

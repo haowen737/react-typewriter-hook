@@ -1,5 +1,8 @@
 # built folder
 build
+dist
+.npm-cache
+.DS_Store
 
 # Logs
 logs
