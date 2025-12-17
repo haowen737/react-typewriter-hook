@@ -3,6 +3,7 @@ build
 dist
 .npm-cache
 .DS_Store
+example2/
 
 # Logs
 logs

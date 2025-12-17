@@ -16,6 +16,21 @@ export default function useTypewriterSequence(
   const timeoutIdRef = useRef<ReturnType<typeof setTimeout> | null>(null)
   const indexRef = useRef(0)
 
+  const pauseMs = Math.max(0, options?.pauseMs ?? 1700)
+  const loop = options?.loop ?? true
+  const typingDelay = options?.typingDelay
+  const deletingDelay = options?.deletingDelay
+
+  const wordsKey = JSON.stringify(words)
+
+  const delayKey = (delay: TypewriterOptions['typingDelay']) => {
+    if (delay == null) return 'default'
+    if (typeof delay === 'number') return `n:${delay}`
+    return `r:${delay[0]}-${delay[1]}`
+  }
+
+  const optionsKey = `${pauseMs}|${loop ? 1 : 0}|t:${delayKey(typingDelay)}|d:${delayKey(deletingDelay)}`
+
   useEffect(() => {
     if (!words.length) {
       setWord(null)
@@ -24,11 +39,9 @@ export default function useTypewriterSequence(
 
     indexRef.current = 0
 
-    const pauseMs = Math.max(0, options?.pauseMs ?? 1700)
-    const loop = options?.loop ?? true
     const writerOptions: TypewriterOptions = {
-      typingDelay: options?.typingDelay,
-      deletingDelay: options?.deletingDelay,
+      typingDelay,
+      deletingDelay,
     }
 
     writerRef.current = new Typewriter(writerOptions)
@@ -64,7 +77,7 @@ export default function useTypewriterSequence(
       cancelled = true
       if (timeoutIdRef.current) clearTimeout(timeoutIdRef.current)
     }
-  }, [words, options?.deletingDelay, options?.loop, options?.pauseMs, options?.typingDelay])
+  }, [wordsKey, optionsKey])
 
   return word
 }
