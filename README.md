@@ -10,7 +10,7 @@ npm i react-typewriter-hook --save
 ```
 
 ## Example
-- GitHub Pages: `https://haowen737.github.io/react-typewriter-hook/`
+- Live Demo: [react-typewriter-hook](https://haowen737.github.io/react-typewriter-hook/)
 - Local demo: `npm --prefix example install && npm --prefix example run dev`
 
 ## Usage
@@ -20,16 +20,18 @@ import { useTypewriterSequence } from "react-typewriter-hook"
 
 function MagicWriter(word) {
   const typing = useTypewriter(word, {
-    typingDelay: [70, 100],
-    deletingDelay: [30, 60],
+    typingDelay: [90, 170],
+    deletingDelay: [55, 120],
   })
   return typing ?? ""
 }
 
 function MagicSequence(words) {
   const typing = useTypewriterSequence(words, {
-    pauseMs: 1200,
+    pauseMs: 1700,
     loop: true,
+    typingDelay: [90, 170],
+    deletingDelay: [55, 120],
   })
   return typing ?? ""
 }
