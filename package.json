@@ -52,7 +52,7 @@
     "react-dom": "^18.3.1",
     "tsup": "^8.0.0",
     "typescript": "^5.0.0",
-    "vitest": "^2.1.0"
+    "vitest": "^4.0.16"
   },
   "dependencies": {}
 }
