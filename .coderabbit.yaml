@@ -1,0 +1,16 @@
+language: en-US
+
+reviews:
+  profile: assertive
+  high_level_summary: true
+  review_status: true
+  collapse_walkthrough: true
+  changed_files_summary: true
+  sequence_diagrams: false
+  estimate_code_review_effort: true
+  poem: false
+  path_filters:
+    - "!dist/**"
+    - "!node_modules/**"
+    - "!**/*.lock"
+    - "!.tmp-publish-check/**"
