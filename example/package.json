@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "dependencies": {
-    "react": "^18.3.1",
+    "react": "^19.2.3",
     "react-dom": "^18.3.1"
   },
   "engines": {
@@ -17,7 +17,7 @@
     "deploy": "npm run build && gh-pages -d dist"
   },
   "devDependencies": {
-    "@types/react": "^18.3.0",
+    "@types/react": "^19.2.7",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.0",
     "gh-pages": "^6.1.0",
