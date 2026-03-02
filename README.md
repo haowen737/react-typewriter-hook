@@ -1,4 +1,11 @@
 # react-typewriter-hook
+[![npm version](https://img.shields.io/npm/v/react-typewriter-hook)](https://www.npmjs.com/package/react-typewriter-hook)
+[![npm downloads](https://img.shields.io/npm/dm/react-typewriter-hook)](https://www.npmjs.com/package/react-typewriter-hook)
+[![bundle size](https://img.shields.io/bundlephobia/minzip/react-typewriter-hook)](https://bundlephobia.com/package/react-typewriter-hook)
+[![types](https://img.shields.io/npm/types/react-typewriter-hook)](https://www.npmjs.com/package/react-typewriter-hook)
+[![CI](https://github.com/haowen737/react-typewriter-hook/actions/workflows/ci.yml/badge.svg)](https://github.com/haowen737/react-typewriter-hook/actions/workflows/ci.yml)
+[![Coverage](https://codecov.io/gh/haowen737/react-typewriter-hook/graph/badge.svg)](https://codecov.io/gh/haowen737/react-typewriter-hook)
+
 > ⌨️   Use react hooks for typing effect easily
 
 ## Sample
